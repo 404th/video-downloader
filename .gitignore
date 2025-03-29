@@ -1,0 +1,9 @@
+.vscode
+.env
+.DS_Store
+.vendor
+./secret
+./_all_dbs
+./actuator/env
+config.json
+./telescope
