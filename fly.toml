@@ -14,3 +14,4 @@ primary_region = "arn"
   cpu_kind = "shared"  # Shared CPU for cost efficiency
   cpus = 1            # 1 vCPU
   memory = "256mb"    # 256 MB RAM (lightweight bot)
+  
