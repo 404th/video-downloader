@@ -5,16 +5,9 @@ primary_region = "arn"
   dockerfile = "Dockerfile"
 
 [processes]
-  app = ""  # Relies on Dockerfile CMD
+  app = "./bot"  # Matches CMD ["./bot"]
 
 [[vm]]
   cpu_kind = "shared"
   cpus = 1
   memory = "256mb"
-
-# Corrected auto-stop/auto-start behavior
-[http_service]
-  internal_port = 8085  # Adjust to your bot’s port if using webhooks
-  auto_stop_machines = "stop"  # Stops machines when idle
-  auto_start_machines = false   # Starts machines on demand
-  min_machines_running = 0     # Minimum of 0 machines when idle
