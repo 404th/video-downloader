@@ -1,17 +1,20 @@
 app = "video-downloader"
 primary_region = "arn"
 
-# Build configuration (uses your Dockerfile)
 [build]
   dockerfile = "Dockerfile"
 
-# Define the process (your bot runs as a single process)
 [processes]
-  app = ""  # Empty command; uses Dockerfile's CMD ["./bot"]
+  app = ""  # Relies on Dockerfile CMD
 
-# Machine configuration (VM settings)
 [[vm]]
-  cpu_kind = "shared"  # Shared CPU for cost efficiency
-  cpus = 1            # 1 vCPU
-  memory = "256mb"    # 256 MB RAM (lightweight bot)
-  
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "256mb"
+
+# Corrected auto-stop/auto-start behavior
+[http_service]
+  internal_port = 8085  # Adjust to your bot’s port if using webhooks
+  auto_stop_machines = "stop"  # Stops machines when idle
+  auto_start_machines = false   # Starts machines on demand
+  min_machines_running = 0     # Minimum of 0 machines when idle
